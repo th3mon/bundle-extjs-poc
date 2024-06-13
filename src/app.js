@@ -1,9 +1,7 @@
-Ext.onReady(() => {
-  Ext.create("Ext.Panel", {
-    renderTo: "app",
-    title: "Sample App",
-    html: "The sample app",
-    layout: "fit",
-    border: false,
+const App = () => {
+  Ext.create("components.main-panel.MainPanel", {
+    renderTo: Ext.getBody(),
   });
-});
+};
+
+App();

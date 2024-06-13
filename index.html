@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ExtJS Bundle POC</title>
     <!-- 7.5.1.5 -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-crisp/resources/theme-crisp-all.css"
-    />
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script> -->
-    <script src="vendors/extjs/ext-all-debug.js"></script>
-    <script src="src/app.js"></script>
-    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/theme-crisp-all.css" />
+    <script src="vendors/extjs/6.0.0/ext-all.js"></script>
+    <script>
+      Ext.onReady(function () {
+        Ext.Loader.setConfig({
+          enabled: true,
+          paths: {
+            MyApp: "src",
+            components: "src/components",
+          },
+        });
+
+        Ext.require("MyApp.app");
+      });
+    </script>
   </head>
-  <body>
-    <div id="app"></div>
-  </body>
+  <body></body>
 </html>
