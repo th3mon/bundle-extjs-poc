@@ -4,4 +4,8 @@ const App = () => {
   });
 };
 
-App();
+try {
+  App();
+} catch {
+  Ext.onReady(() => App());
+}
