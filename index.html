@@ -7,19 +7,7 @@
     <!-- 7.5.1.5 -->
     <link rel="stylesheet" href="css/theme-crisp-all.css" />
     <script src="vendors/extjs/6.0.0/ext-all.js"></script>
-    <script>
-      Ext.onReady(function () {
-        Ext.Loader.setConfig({
-          enabled: true,
-          paths: {
-            MyApp: "src",
-            components: "src/components",
-          },
-        });
-
-        Ext.require("MyApp.app");
-      });
-    </script>
+    <script src="src/boot.js"></script>
   </head>
   <body></body>
 </html>
