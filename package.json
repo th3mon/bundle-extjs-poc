@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server",
-    "remove-dist": "rm -rf dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dist": "http-server dist",
+    "build": "gulp js",
+    "build:dist": "gulp clear-dist && gulp",
+    "clear-dist": "rm -rf dist && mkdir dist"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2"
   }
 }
