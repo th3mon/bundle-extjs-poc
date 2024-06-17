@@ -6,8 +6,8 @@
   "scripts": {
     "start": "http-server",
     "start:dist": "http-server dist",
-    "build": "gulp js",
-    "build:dist": "gulp clear-dist && gulp",
+    "build": "gulp",
+    "build:dist": "clear-dist && gulp",
     "clear-dist": "rm -rf dist && mkdir dist"
   },
   "keywords": [],
