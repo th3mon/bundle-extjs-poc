@@ -1,7 +1,7 @@
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const rename = require("gulp-rename");
-const { src, dest, parallel } = require("gulp");
+const { src, dest, parallel, series } = require("gulp");
 
 function jsBundle(cb) {
   const jsFiles = ["src/**/*.js", "!src/boot.js"];
@@ -29,9 +29,13 @@ function copyHTMLFiles(cb) {
   cb();
 }
 
-exports.default = parallel(
-  jsBundle,
-  copyVendorFiles,
-  copyCSSFiles,
-  copyHTMLFiles,
+async function clean() {
+  const del = await import("del");
+
+  return del.deleteAsync(["dist/**", "!dist"], { force: true });
+}
+
+exports.default = series(
+  clean,
+  parallel(jsBundle, copyVendorFiles, copyCSSFiles, copyHTMLFiles),
 );
